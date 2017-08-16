@@ -10,7 +10,7 @@ d = pq(url=init_url)
 
 l = d(".paginator a")
 
-l = [int(i.attrib["href"].split("=")[1]) for i  in l]
+l = [int(i.attrib["href"].split("=")[1].replace('&sortby', '')) for i  in l]
 max_page = max(l)
 for tmp in range(0,max_page,30):
 	current_url = init_url + "?start="+str(tmp)
